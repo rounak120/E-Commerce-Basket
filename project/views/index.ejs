@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/counter.css">
+	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+
+	<title>Hello, world!</title>
+</head>
+
+<body>
+	<style>
+		
+	</style>
+	<script>
+		// img\product\c41.jpg
+		// const email=sessionStorage.getItem("email")
+		// console.log(email);
+		// if(email){
+		// 	location.replace(`${url}/profile/${email}`)
+		// }	
+		function preventBack() {
+            window.history.forward(); 
+            
+        }
+          
+        setTimeout("preventBack()", 0);
+		window.onunload = function () { 
+            console.log("unload");
+            console.log(email);
+            
+        };
+		const url='http://localhost:3000/'
+		const products=[{'id':1,'src':'img/product/c131.jpg','pri':'70'},
+		{'id':2,'src':'img/product/c41.jpg','pri':'50'},
+		{'id':3,'src':'img/product/c51.jpg','pri':'40'},
+		{'id':4,'src':'img/product/c61.jpg','pri':'70'},
+		{'id':5,'src':'img/product/c71.jpg','pri':'20'},
+		{'id':6,'src':'img/product/c81.jpg','pri':'70'},
+		{'id':7,'src':'img/product/c91.jpg','pri':'80'},
+		{'id':8,'src':'img/product/c101.jpg','pri':'50'},
+		{'id':9,'src':'img/product/M1.jpg','pri':'100'},
+		{'id':10,'src':'img/product/M2.jpg','pri':'80'},
+		{'id':11,'src':'img/product/M3.jpg','pri':'90'},
+		{'id':12,'src':'img/product/M4.jpg','pri':'70'},
+		{'id':13,'src':'img/product/M5.jpg','pri':'60'},
+		{'id':14,'src':'img/product/M6.jpg','pri':'70'},
+		{'id':15,'src':'img/product/M7.jpg','pri':'10'}];
+		console.log(products)
+		const add=async (e)=>{
+			// console.log("risha")
+			const email=sessionStorage.getItem("email");
+			console.log(e.target.attributes.value.nodeValue)
+			console.log(e)
+			var ind=e.target.attributes.value.nodeValue-'0';
+			console.log(ind)
+			ind=ind-1;
+			console.log(products[ind])
+			const r=await fetch(`http://localhost:3000/add/${email}`, {
+				method: 'POST',
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(products[ind])
+			}).then((res)=>{
+				return res.json()
+			}).then(res=>{
+				console.log(res)
+			});
+		}
+
+		const logout= async (e)=>{
+			console.log("logout");
+			// const r=await fetch('http://localhost:3000/logout')
+			sessionStorage.removeItem("email")
+			location.replace('http://localhost:3000/logout')
+		}
+
+		const cart=()=>{
+			const email=sessionStorage.getItem("email");
+			console.log(email);
+			location.replace(`http://localhost:3000/cart/${email}`)
+		}
+
+	</script>
+	<div class="container-fluid" style="background-color: #000000;">
+		<div class="container">
+			<nav class="navbar navbar-expand-lg ">
+				<a class="navbar-brand" href="#">E-COMMERCE</a>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="http://localhost:3000/home">Home <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Contact us</a>	
+						</li>
+					</ul>
+					<!-- <form class="form-inline my-2 my-lg-0">
+						<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+					</form> -->
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<a class="btn btn-lg btn-danger text-light ml-5" onclick="cart()"><i class="fa fa-cart-arrow-down"
+									aria-hidden="true"></i> Cart</a>
+						</li>
+						<% if(login === "yes"){ %>
+							&nbsp;&nbsp;&nbsp;
+							<li>
+								<button class="btn btn-lg btn-success" onclick="logout(event)">Logout</button>
+							</li>
+							&nbsp;&nbsp;&nbsp;
+							<li>
+								<button id="nabut" class="btn btn-lg btn-success" ><%= name %></button>
+							</li>
+						<% } else{ %>
+							&nbsp;&nbsp;&nbsp;
+							<li>
+								<a class="btn btn-lg btn-success" href="http://localhost:3000/login">LOGIN</a>
+							</li>
+						<% } %>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+
+	<!--slider start -->
+
+	<div class="bd-example">
+		<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+				<li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="img/shop 1.jpg" class="d-block w-100" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<p class="slider-title">NEW COLLECTION ARRIVED</p>
+						<p class="slider-text">Heck the latest collection on Women's Dress</p>
+						<p class="buttob mt-5"> <a class="btn btn-lg btn-success">BUY NOW</a>&nbsp; &nbsp; <a
+								class="btn btn-danger btn-lg">KNOW MORE</a></p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!--slider end-->
+
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="outer-div">
+					<div class="inner-div1">
+						<h1 class="zoom-box-text">FOR MAN </h1>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div class="outer-div">
+					<div class="inner-div2">
+						<h1 class="zoom-box-text">FOR WOMEN </h1>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+	<div class="container">
+		<div class="row mt-5 mb-5">
+			<div class="col-md-12">
+				<h1 class="text-center">FOR HER</h1>
+			</div>
+		</div>
+	</div>
+	<div class="Allboxes">
+		<div class="card">
+			<img class="images" src="img/product/c131.jpg">
+			<div class="innercard">
+				<b>
+					<p>Turtleneck Top</p> 
+					<p>70$</p>
+				</b>
+				<a class="btn btn-info">Buy Now</a> &nbsp; &nbsp;
+				<a class="btn btn-success" onclick="add(event)" value="1">Add To Cart</a>
+			</div>
+		</div>
+		<div class="card">
+			<img class="images" src="img/product/c41.jpg">
+			<div class="innercard">
+				<p> Basic T-shirt</p>
+				<p>50$</p>
+				<a class="btn btn-info">Buy Now</a> &nbsp; &nbsp;
+				<a class="btn btn-success" onclick="add(event)" value="2" >Add To Cart</a>
+			</div>
+		</div>
+		<div class="card">
+			<img class="images" src="img/product/c51.jpg">
+			<div class="innercard">
+				<p>Fitted Cami</p>
+				<p>40$</p>
+				<a class="btn btn-info">Buy Now</a> &nbsp; &nbsp;
+				<a class="btn btn-success" onclick="add(event)" value="3" >Add To Cart</a>
+			</div>
+		</div>
+
+
+		<div class="card">
+			<img class="images" src="img/product/c61.jpg">
+			<div class="innercard">
+				<p>Tunic</p>
+				<p>70$</p>
+				<a class="btn btn-info">Buy Now</a> &nbsp; &nbsp;
+				<a class="btn btn-success" onclick="add(event)"  value="4">Add To Cart</a>
+			</div>
+		</div>
+		<div class="card">
+			<img class="images" src="img/product/c71.jpg">
+			<div class="innercard">
+				<p>Peplum Top</p>
+				<p>20$</p>
+				<a class="btn btn-info">Buy Now</a> &nbsp; &nbsp;
+				<a class="btn btn-success" onclick="add(event)" value="5">Add To Cart</a>
+			</div>
+		</div>
+		<div class="card">
+			<img class="images" src="img/product/c81.jpg">
+			<div class="innercard">
+				<p>Wrap Top</p>
+				<p>70$</p>
+				<a class="btn btn-info">Buy Now</a> &nbsp; &nbsp;
+				<a class="btn btn-success" onclick="add(event)" value="6" >Add To Cart</a>
+			</div>
+		</div>
+		<div class="card">
+			<img class="images" src="img/product/c91.jpg">
+			<div class="innercard">
+				<p>Boxy Top</p>
+				<p>80$</p>
+				<a class="btn btn-info">Buy Now</a> &nbsp; &nbsp;
+				<a class="btn btn-success" onclick="add(event)" value="7" >Add To Cart</a>
+			</div>
+		</div>
+		<div class="card">
+			<img class="images" src="img/product/c101.jpg">
+			<div class="innercard">
+				<p>Crop Top	</p>
+				<p>50$</p>
+				<a class="btn btn-info">Buy Now</a> &nbsp; &nbsp;
+				<a class="btn btn-success" onclick="add(event)" value="8" >Add To Cart</a>
+			</div>
+		</div>
+
+	</div>
+
+
+
+	<div class="container">
+		<div class="row mt-5 mb-5">
+			<div class="col-md-12">
+				<h1 class="text-center">FOR HIM</h1>
+			</div>
+		</div>
+	</div>
+
+	<div class="Allboxes">
+		<div class="card">
+			<img class="images" src="img/product/M1.jpg">
+			<div class="innercard">
+				<p>Jacket</p>
+				<p>100$</p>
+				<a class="btn btn-info">Buy Now</a> &nbsp; &nbsp;
+				<a class="btn btn-success" onclick="add(event)" value="9" >Add To Cart</a>
+			</div>
+		</div>
+		<div class="card">
+			<img class="images" src="img/product/M2.jpg">
+			<div class="innercard">
+				<p>Jeans</p>
+				<p>80$</p>
+				<a class="btn btn-info">Buy Now</a> &nbsp; &nbsp;
+				<a class="btn btn-success" onclick="add(event)" value="10" >Add To Cart</a>
+			</div>
+		</div>
+		<div class="card">
+			<img class="images" src="img/product/M3.jpg">
+			<div class="innercard">
+				<p>Shoes</p>
+				<p>90$</p>
+				<a class="btn btn-info">Buy Now</a> &nbsp; &nbsp;
+				<a class="btn btn-success" onclick="add(event)" value="11" >Add To Cart</a>
+			</div>
+		</div>
+
+
+		<div class="card">
+			<img class="images" src="img/product/M4.jpg">
+			<div class="innercard">
+				<p>Jacket</p>
+				<p>70$</p>
+				<a class="btn btn-info">Buy Now</a> &nbsp; &nbsp;
+				<a class="btn btn-success" onclick="add(event)" value="12" >Add To Cart</a>
+			</div>
+		</div>
+		<div class="card">
+			<img class="images" src="img/product/M5.jpg">
+			<div class="innercard">
+				<p>Jeans</p>
+			    <p>60$</p>
+				<a class="btn btn-info">Buy Now</a> &nbsp; &nbsp;
+				<a class="btn btn-success" onclick="add(event)" value="13" >Add To Cart</a>
+			</div>
+		</div>
+		<div class="card">
+			<img class="images" src="img/product/M6.jpg">
+			<div class="innercard">
+				<p>Funky-Jeans</p>
+			    <p>70$</p>
+				<a class="btn btn-info">Buy Now</a> &nbsp; &nbsp;
+				<a class="btn btn-success" onclick="add(event)" value="14" >Add To Cart</a>
+			</div>
+		</div>
+		<div class="card">
+			<img class="images" src="img/product/M7.jpg">
+			<div class="innercard">
+				<p>Bracelet</p>
+				<p>10$</p>
+				<a class="btn btn-info">Buy Now</a> &nbsp; &nbsp;
+				<a class="btn btn-success" onclick="add(event)" value="15" >Add To Cart</a>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+	<div class="container-fluid" id="discount">
+		<div class="container discount-session-content">
+			<div class="row">
+				<div class="col-md-6">
+					<h1 class="text-light text-capitalize">
+						follow us on
+					</h1><br />
+					<div class="social-icons">
+						<i class="fa fa-facebook" aria-hidden="true"></i>
+						<i class="fa fa-twitter" aria-hidden="true"></i>
+						<i class="fa fa-instagram" aria-hidden="true"></i>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<h1>Subscribe to get discount<br /> coupons & new Offers!</h1>
+					<p class="discount-session-content-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+						sed diam nonummy nibh euismod tincidunt erat volutpat.</p><br />
+					<form class="form-inline">
+						<div class="form-group mx-sm-12 mb-2">
+							<label for="inputPassword2" class="sr-only">Mail Id</label>
+							<input type="password" class="form-control" id="inputPassword2"
+								placeholder="Enter Your Mail Id">
+							&nbsp; &nbsp;
+
+						</div>
+						<button type="submit" class="btn btn-danger text-light mb-2">SUBSCRIBE US</button>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="payment">
+		<div class="">
+			<div class="col-md-6 payment-method">
+				<p class=" icon pt-5 pb-2"><i class="fa fa-credit-card-alt" aria-hidden="true"></i></p>
+				<h2 class="text-capitalize">Paymeny method</h2>
+				<p class="payment-methode-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, eius,
+					totam. Corrupti, laborum dolorem corporis accusamus commodi cum voluptates, beatae sunt ab, mollitia
+					perferendis rerum deleniti placeat porro consectetur cupiditate?</p><br />
+				<img class="img-fluid" src="img/payment_methods.jpg">
+			</div>
+		</div>
+	</div>
+
+
+	<footer class="container-fluid mt-5">
+		<div class="container pt-5 pb-5">
+			<div class="row">
+				<div class="col-md-6">
+					<h3>E-COMMERCE.COM</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia et eligendi at illo?
+						Repellendus explicabo earum ab repudiandae fugit et eaque iusto cumque labore! At, accusamus
+						explicabo reprehenderit natus cumque!</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem consequatur vero reiciendis
+						pariatur, qui, assumenda nobis vitae quia natus quod, iste quae. Corrupti, eum, adipisci
+						mollitia voluptatum est consequatur hic?</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+	<div class="container-fluid bg-dark">
+		<div class="row">
+			<div class="col-md-12 text-capitalize text-center text-light">
+			</div>
+		</div>
+	</div>
+</body>
+<script src="index.js"></script>
+</html>

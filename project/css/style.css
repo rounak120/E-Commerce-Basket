@@ -1,0 +1,145 @@
+/* CSS Document */
+
+.navbar {
+  background-color: #000000;
+}
+.navbar .navbar-brand {
+  color: #ecf0f1;
+}
+
+.navbar .navbar-text {
+  color: #ecf0f1;
+}
+.navbar .navbar-text a {
+  color: #ecdbff;
+}
+
+.navbar .navbar-nav .nav-link {
+  color: #ecf0f1;
+  border-radius: .25rem;
+  margin: 0 0.25em;
+}
+
+.navbar .navbar-link {
+  color: #ecf0f1;
+}
+.navbar .navbar-link:hover {
+  color: #ecdbff;
+}
+
+
+.carousel-caption {
+	top: 30%
+}
+
+.slider-title {
+	font-size: 80px;
+}
+
+.slider-text {
+	font-size: 30px;
+}
+
+.outer-div{
+	height: 350px;
+	overflow: hidden
+		
+}
+.inner-div1{
+	height: 300px;
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+	transition: all 0.5s ease;
+	background-image:url(../img/for-men.jpg)
+}
+
+.inner-div2{
+	height: 300px;
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+	transition: all 0.5s ease;
+	background-image:url(../img/for-women.jpg)
+}
+
+.zoom-box-text{
+	text-align: center;
+	line-height: 300px;
+}
+.zoom-box-text {color: white; }
+
+.images{
+  width: 250px;
+  height: 250px;
+  margin-left: 15%;
+  margin-top: 5%;
+}
+.checked{
+  color: orange;
+}
+.card{
+  height: 400px;
+  width: 350px;
+  border: 1px solid black;
+  background-color: rgb(240, 239, 239);
+  margin: 20px 0px;
+}
+
+.innercard{
+  text-align: center;
+}
+.innercard p {
+  font-weight: bold;
+  margin-top: 10px;
+}
+.product-card{
+	border: none;
+	text-align: center;
+	position: relative;
+	
+}
+.Allboxes{
+  display:  flex;
+  flex-wrap: wrap;
+  flex-basis: 30%;
+  justify-content: space-around;
+}
+.payment{
+  margin-top: 30px;
+  margin-left: 30%;
+}
+ #discount{
+	background-image: url(../img/discount-background.jpg);
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.discount-session-content {
+	padding: 150px 0;
+	color: white;
+} 
+.social-icons {
+	font-size: 100px;
+	color: white;
+}
+.icon{
+	font-size: 60px;
+	color: dimgray;
+}
+.payment-method {
+	padding: 10px 40px 30px 20px;
+	background-color: #F8F8F8;
+	border-radius: 30px;
+	-webkit-box-shadow: inset 1px 0px 12px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 1px 0px 12px 0px rgba(0,0,0,0.5);
+	box-shadow: inset 1px 0px 12px 0px rgba(0,0,0,0.5);
+}
+
+footer{
+	background-image: url(../img/footer-background.jpg);
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center center;
+	color: aliceblue;
+}

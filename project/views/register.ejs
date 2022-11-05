@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <!-- regestration css file  -->
+        <link rel="stylesheet" href="/css/regestration.css">
+
+        <!-- google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
+        <!-- fontawesome link  -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+        <title>Signup</title>
+    </head>
+    <body>
+        <style>
+            #submit{
+                background-color: green;
+                color: white;
+                border: 2px solid #4CAF50;
+            }
+            #signup .box {
+    margin-right: auto;
+    margin-left: 30%;
+}
+        </style>
+        <script>
+            function preventBack() {
+            window.history.forward(); 
+            
+        }
+          
+        setTimeout("preventBack()", 0);
+		window.onunload = function () { 
+            console.log("unload");
+            console.log(email);
+            
+        };
+        </script>
+        <div id="signup" class="regestration">
+            <div class="container py-3 d-flex align-items-center justify-content-center">
+                <div class="box">
+                    <form action="/create" method="post">
+                        <label for="fullname">Full Name</label><br>
+                        <div class="d-flex justify-content-center align-items-center inputBox">
+                            <i class="fas fa-user"></i>
+                            <input type="text" name="name"><br>
+                        </div>
+
+                        <label for="fullname">Email Id</label><br>
+                        <div class="d-flex justify-content-center align-items-center inputBox">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" name="email"><br>
+                        </div>
+
+                        <label for="fullname">Password</label><br>
+                        <div id="password" class="d-flex justify-content-center align-items-center inputBox">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password">
+                        </div>
+
+                        <button id="submit" class="btn bgBtn solidBtn">Sign up</button>
+                    </form>
+                    <center style="margin-top: 10px;">
+                        Already have an account ?<a href="http://localhost:3000/login">Log In</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <script src="../js/signup.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

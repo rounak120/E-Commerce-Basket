@@ -1,0 +1,75 @@
+#signup{
+    background-image: url(/img/shop\ 1.jpg);
+}
+#login{
+    background-image: url(/img/shop\ 1.jpg);
+}
+
+.regestration{
+    background-color: rgb(77 77 77);
+    background-blend-mode: soft-light;
+    background-size: cover;
+    background-position-y: 15%;
+    min-height: 100vh;
+}
+#signup .container,#login .container,#admin .container{
+    min-height: 100vh;
+}
+.box{
+    color: white;
+    width: 500px;
+    background: #000000a6;
+    padding: 45px 33px;
+    border-radius: 10px;
+
+}
+#signup .box{
+    margin-right: auto;
+}
+.box .inputBox{
+    height: 52px;
+    width: 100%;
+    background: var(--darkBlack);
+    border-radius: 5px;
+    margin: 7px 0px;
+    position: relative;
+}
+.box input{
+    width: 100%;
+    margin: 7px 0px;
+    height: 52px;
+    background: black;
+    border: none;
+    border-radius: 7px;
+    color: #c2c0c0;
+    padding-right: 55px;
+    padding-left: 55px;   
+}
+.box i{
+    margin: 0px 18px;
+    color: white;
+    font-size: 22px;
+    position: absolute;
+    left: 0px; 
+}
+.box label{
+    color: #c2c0c0;
+    margin-top: 13px;
+}
+.box button{
+    margin-top: 14px;
+}
+.box a{
+    text-decoration: none;
+    color: green;
+    margin-left: 10px;
+    font-size: 17px;
+}
+.box a:hover,.box a:focus{
+    text-decoration: underline;
+}
+
+.btn-close:focus{
+    border: none;
+    box-shadow: none;
+}
